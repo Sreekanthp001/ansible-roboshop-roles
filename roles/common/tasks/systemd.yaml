@@ -1,7 +1,8 @@
-- name: Deploy catalogue service to system directory
-  ansible.builtin.template:
-    src: catalogue.service.j2
+- name: Copy catalogue service file
+  ansible.builtin.copy:
+    src: catalogue.service
     dest: /etc/systemd/system/catalogue.service
+
 
 - name: systemctl deamon reload
   ansible.builtin.systemd_service:
